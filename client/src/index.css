@@ -1,0 +1,271 @@
+/* ============================================================
+ * DESIGN SYSTEM: Premium Dark Slate + Amber Athletic UI
+ * Font: Oswald (display/headers) + Nunito Sans (body)
+ * Background: Deep Slate #0F172A | Accent: Amber #F59E0B
+ * Surface: Slate-800 #1E293B | Secondary: Teal #14B8A6
+ * ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom brand colors */
+  --color-amber-400: oklch(0.828 0.189 84.429);
+  --color-amber-500: oklch(0.769 0.188 70.08);
+  --color-teal-400: oklch(0.777 0.152 181.912);
+  --color-teal-500: oklch(0.704 0.14 182.503);
+  --color-slate-700: oklch(0.372 0.044 257.287);
+  --color-slate-800: oklch(0.279 0.041 260.031);
+  --color-slate-900: oklch(0.208 0.042 265.755);
+  --color-slate-950: oklch(0.129 0.042 264.695);
+}
+
+:root {
+  --radius: 0.5rem;
+  
+  /* Dark theme as default */
+  --background: oklch(0.129 0.042 264.695);  /* slate-950 */
+  --foreground: oklch(0.929 0.013 255.508);  /* slate-200 */
+  --card: oklch(0.208 0.042 265.755);         /* slate-900 */
+  --card-foreground: oklch(0.929 0.013 255.508);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.929 0.013 255.508);
+  
+  /* Amber as primary */
+  --primary: oklch(0.828 0.189 84.429);       /* amber-400 */
+  --primary-foreground: oklch(0.129 0.042 264.695);
+  
+  /* Teal as secondary */
+  --secondary: oklch(0.279 0.041 260.031);    /* slate-800 */
+  --secondary-foreground: oklch(0.929 0.013 255.508);
+  
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.554 0.046 257.417);  /* slate-500 */
+  
+  --accent: oklch(0.372 0.044 257.287);       /* slate-700 */
+  --accent-foreground: oklch(0.929 0.013 255.508);
+  
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  
+  --border: oklch(0.279 0.041 260.031);       /* slate-800 */
+  --input: oklch(0.279 0.041 260.031);
+  --ring: oklch(0.828 0.189 84.429);          /* amber-400 */
+  
+  --chart-1: oklch(0.828 0.189 84.429);
+  --chart-2: oklch(0.777 0.152 181.912);
+  --chart-3: oklch(0.704 0.14 182.503);
+  --chart-4: oklch(0.769 0.188 70.08);
+  --chart-5: oklch(0.372 0.044 257.287);
+  
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.929 0.013 255.508);
+  --sidebar-primary: oklch(0.828 0.189 84.429);
+  --sidebar-primary-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.929 0.013 255.508);
+  --sidebar-border: oklch(0.279 0.041 260.031);
+  --sidebar-ring: oklch(0.828 0.189 84.429);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito Sans', sans-serif;
+    font-optical-sizing: auto;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+  
+  /* Amber glow effect */
+  .amber-glow {
+    box-shadow: 0 0 20px oklch(0.828 0.189 84.429 / 0.3),
+                0 0 40px oklch(0.828 0.189 84.429 / 0.1);
+  }
+  
+  /* Teal glow */
+  .teal-glow {
+    box-shadow: 0 0 20px oklch(0.777 0.152 181.912 / 0.3);
+  }
+  
+  /* Grid texture background */
+  .grid-texture {
+    background-image: 
+      linear-gradient(oklch(0.279 0.041 260.031 / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(0.279 0.041 260.031 / 0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  /* Gradient text amber */
+  .text-gradient-amber {
+    background: linear-gradient(135deg, oklch(0.828 0.189 84.429), oklch(0.769 0.188 70.08));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Gradient text teal */
+  .text-gradient-teal {
+    background: linear-gradient(135deg, oklch(0.777 0.152 181.912), oklch(0.704 0.14 182.503));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Card hover effect */
+  .card-hover {
+    transition: transform 150ms cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 150ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 8px 32px oklch(0 0 0 / 0.4),
+                0 0 0 1px oklch(0.828 0.189 84.429 / 0.2);
+  }
+  
+  /* Button active press */
+  .btn-press:active {
+    transform: scale(0.97);
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  /* Fade up animation */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-up {
+    animation: fadeUp 300ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+  
+  .fade-up-1 { animation-delay: 50ms; }
+  .fade-up-2 { animation-delay: 100ms; }
+  .fade-up-3 { animation-delay: 150ms; }
+  .fade-up-4 { animation-delay: 200ms; }
+  .fade-up-5 { animation-delay: 250ms; }
+  .fade-up-6 { animation-delay: 300ms; }
+  .fade-up-7 { animation-delay: 350ms; }
+  
+  /* Progress bar animation */
+  @keyframes progressFill {
+    from { width: 0%; }
+  }
+  
+  .progress-animate {
+    animation: progressFill 800ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation-delay: 400ms;
+  }
+  
+  /* Pulse glow for active elements */
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 8px oklch(0.828 0.189 84.429 / 0.4); }
+    50% { box-shadow: 0 0 20px oklch(0.828 0.189 84.429 / 0.7); }
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-up { animation-play-state: running; }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { animation: none; opacity: 1; transform: none; }
+    .progress-animate { animation: none; }
+    .pulse-glow { animation: none; }
+  }
+}
