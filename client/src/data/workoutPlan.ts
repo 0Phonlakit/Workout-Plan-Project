@@ -153,7 +153,7 @@ export const workoutSchedule: WorkoutDay[] = [
     notesTh: 'Warm-up: วิ่งเบา 5-8 นาที + ยืดต้นขา Hip circle',
   },
   {
-    id: 'day1',
+    id: 'day2',
     day: 'Tuesday',
     dayTh: 'วันอังคาร',
     type: 'cardio',
